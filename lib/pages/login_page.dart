@@ -15,9 +15,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-
-
-
+String name = "";
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -37,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
             height: 20.0,
           ),
           Text(
-            "Welcome",
+            "Welcome $name",
             style: TextStyle(
               fontSize: 24,
             ),
@@ -55,6 +53,10 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Enter Name",
                     labelText: "Name",
                   ),
+                  onChanged: (value) {
+                    name = value;
+                    setState(() {});
+                  },
                 ),
                 TextFormField(
                   obscureText: true,
