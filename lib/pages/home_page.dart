@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             'I am Bilal, and i am $age year old',
             style: TextStyle(
               fontSize: 24,
-              color: Color.fromARGB(255, 81, 249, 86),
+              color: Colors.deepOrange,
             ),
           ),
         ),

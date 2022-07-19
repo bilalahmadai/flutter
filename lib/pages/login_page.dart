@@ -16,6 +16,7 @@ class LoginPage extends StatefulWidget {
 }
 
 String name = "";
+bool changeBtn = false;
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -71,24 +72,39 @@ class _LoginPageState extends State<LoginPage> {
           SizedBox(
             height: 20.0,
           ),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, MyRoutes.homeRoute);
-            },
-            child: Container(
-              width: 150,
-              height: 50,
-              alignment: Alignment.center,
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+          Material(
+            color: Colors.orange,
+            borderRadius: BorderRadius.circular(changeBtn ? 50 : 8),
+            child: InkWell(
+              onTap: () async {
+                setState(() {
+                  changeBtn = true;
+                });
+                await Future.delayed(Duration(seconds: 1));
+                await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                setState(() {
+                  changeBtn = false;
+                });
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                width: changeBtn ? 50 : 150,
+                height: 50,
+                alignment: Alignment.center,
+                child: changeBtn
+                    ? Icon(
+                        Icons.done,
+                        color: Colors.white,
+                      )
+                    : Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
               ),
-              decoration: BoxDecoration(
-                  color: Colors.orange, borderRadius: BorderRadius.circular(8)),
             ),
           ),
         ],
