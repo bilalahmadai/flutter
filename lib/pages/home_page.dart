@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,7 +16,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
           child: Text(
-            'I am Bilal, and i am $age year old',
+            'I am bilal, and i am $age year old',
             style: TextStyle(
               fontSize: 24,
               color: Colors.deepOrange,

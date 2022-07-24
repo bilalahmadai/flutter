@@ -1,6 +1,3 @@
-import 'dart:ffi';
-import 'dart:ui';
-
 import 'package:first_app/utilis/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
