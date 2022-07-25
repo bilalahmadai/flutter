@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:matcher/matcher.dart';
+
 import 'pages/home_page.dart';
 import "pages/login_page.dart";
+import "utilis/routes.dart";
 
 // affsgb
 void main() {
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => LoginPage(),
         "/home": (context) => HomePage(),
