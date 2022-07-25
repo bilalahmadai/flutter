@@ -14,14 +14,20 @@ class MyDrawer extends StatelessWidget {
             DrawerHeader(
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
-                  margin: EdgeInsets.zero,
-                  accountName: Text("bilal_ahmad"),
-                  accountEmail: Text("bilal@gmail.com"),
-                  currentAccountPicture: Image.network(imgUrl)
-                  // CircleAvatar(
-                  //   backgroundColor: NetworkImage(imgUrl),
-                  // ),
-                  ),
+                margin: EdgeInsets.zero,
+                accountName: Text("bilal_ahmad"),
+                accountEmail: Text("bilal@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(imgUrl),
+                ),
+
+                // Image.network(
+                //   imgUrl,
+                //   width: 70,
+                //   height: 70,
+
+                // )
+              ),
             ),
             ListTile(
               leading: Icon(
