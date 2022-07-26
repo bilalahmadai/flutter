@@ -1,13 +1,15 @@
+import 'dart:js';
+
 import 'package:first_app/models/catalog.dart';
-import 'package:first_app/utilis/routes.dart';
-import 'package:first_app/widgets/item_widget.dart';
+import 'package:first_app/widgets/theme.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:matcher/matcher.dart';
 import 'dart:convert';
 import '../models/catalog.dart';
-import '../widgets/Drawer.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -21,17 +23,8 @@ class _HomePageState extends State<HomePage> {
     loadData();
   }
 
-  // loadData() async {
-  //   final catalogJson = await rootBundle.loadString("catalog.json");
-  //   final decodeData = jsonDecode(catalogJson);
-  //   var productData = decodeData(decodeData);
-
-  //   CatalogModel.items =
-  //       List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
-  //   setState(() {});
-  // }
-
   loadData() async {
+    await Future.delayed(Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
 
@@ -46,24 +39,38 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Bilal's 1st App"),
+      body: SafeArea(
+        child: Container(
+            padding: Vx.m32,
+            color: Colors.cyanAccent,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CatalogHeader(),
+               
+              ],
+            )),
       ),
-      body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-              ? ListView.builder(
-                  itemCount: CatalogModel.items.length,
-                  itemBuilder: (context, index) {
-                    return ItemWidget(
-                      item: CatalogModel.items[index],
-                    );
-                  },
-                )
-              : Center(
-                  child: CircularProgressIndicator(),
-                )),
-      drawer: MyDrawer(),
+    );
+  }
+}
+
+class CatalogHeader extends StatelessWidget {
+  const CatalogHeader({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        "Catalog App".text.xl4.bold.color(MyTheme.darkBlue).make(),
+        Row(
+          children: [
+            Icon(CupertinoIcons.tag_solid, size: 10.0).pOnly(right: 12),
+            "Trending Products".text.medium.thin.make(),
+          ],
+        ),
+      ],
     );
   }
 }

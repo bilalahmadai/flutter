@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
       primarySwatch: Colors.deepOrange,
+      fontFamily: GoogleFonts.poppins().fontFamily,
       appBarTheme: AppBarTheme(
         color: Colors.white,
         elevation: 0.0,
@@ -14,4 +16,7 @@ class MyTheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
       );
+
+  static Color lightBlue = Color(0xff4171EF);
+  static Color darkBlue = Color(0xff2736B7);
 }

@@ -7,11 +7,12 @@ import '../models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
-
+ 
   const ItemWidget({super.key, required this.item}) : assert(item != null);
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(12),
       child: ListTile(
         leading: Image.network(item.image),
         title: Text(item.name),

@@ -51,6 +51,17 @@ class MyDrawer extends StatelessWidget {
                 textScaleFactor: 1.2,
                 style: TextStyle(color: Colors.black),
               ),
+            ),
+            ListTile(
+              leading: Icon(
+                CupertinoIcons.home,
+                color: Colors.black,
+              ),
+              title: Text(
+                "Mail",
+                textScaleFactor: 1.2,
+                style: TextStyle(color: Colors.black),
+              ),
             )
           ],
         ),
