@@ -1,8 +1,4 @@
-import 'dart:js';
-
 import 'package:first_app/models/catalog.dart';
-import 'package:first_app/widgets/theme.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +6,9 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import '../models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '../widgets/home _widgets/catalog_header.dart';
+import '../widgets/home _widgets/catalog_list.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -41,8 +40,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-            padding: Vx.m32,
-            color: Colors.cyanAccent,
+            padding: Vx.m24,
+            // color: Colors.cyanAccent,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -57,52 +56,5 @@ class _HomePageState extends State<HomePage> {
             )),
       ),
     );
-  }
-}
-
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Catalog App".text.xl4.bold.color(MyTheme.darkBlue).make(),
-        Row(
-          children: [
-            Icon(CupertinoIcons.tag_solid, size: 10.0).pOnly(right: 12),
-            "Trending Products".text.medium.thin.make(),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class CatalogList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: CatalogModel.items.length,
-      itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return CatalogItem(catalog: catalog);
-      },
-    );
-  }
-}
-
-class CatalogItem extends StatelessWidget {
-  final Item catalog;
-
-  const CatalogItem({super.key, required this.catalog})
-      : assert(catalog != null);
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-      child: Row(children: [Image.network(catalog.image)]),
-    ).red300.square(100).make();
   }
 }
