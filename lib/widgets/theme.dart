@@ -19,7 +19,7 @@ class MyTheme {
 
   static Color lightBlue = Color(0xff4171EF);
   static Color darkBlue = Color(0xff2736B7);
-  static Color lightSilver = Color(0xffE6E6E6);
+  static Color lightSilver = Color(0xffB3DEF7);
   static Color white2 = Color(0xffE3F4FE);
   static Color tomato = Color(0xffE33841);
 }

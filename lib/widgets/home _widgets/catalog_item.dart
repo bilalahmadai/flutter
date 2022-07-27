@@ -20,9 +20,9 @@ class CatalogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.name.text.lg.color(MyTheme.darkBlue).bold.make(),
+            catalog.name.text.xl.color(MyTheme.darkBlue).bold.make(),
             catalog.desc.text.medium.make(),
-            20.heightBox,
+            15.heightBox,
             ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
               children: [
