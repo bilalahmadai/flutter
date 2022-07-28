@@ -9,14 +9,14 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Catalog App".text.xl4.bold.color(MyTheme.darkBlue).make(),
+        "Catalog App".text.xl4.bold.color(context.accentColor).make(),
         Row(
           children: [
             "Trending Products".text.gray600.medium.thin.make(),
             Icon(
               CupertinoIcons.tag_solid,
               size: 12.0,
-              color: Color.fromARGB(255, 42, 45, 254),
+              color: context.accentColor,
             ).pOnly(left: 12)
           ],
         ),

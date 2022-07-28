@@ -12,10 +12,13 @@ class HomeProductDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyTheme.lightSilver,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      backgroundColor: context.backgroundColor,
       bottomNavigationBar: Container(
-        color: Color.fromARGB(255, 142, 157, 178),
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -24,13 +27,13 @@ class HomeProductDetail extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all(StadiumBorder()),
-                        backgroundColor:
-                            MaterialStateProperty.all(MyTheme.darkBlue)),
-                    child: "Buy".text.make())
-                .wh(100, 50)
+                        backgroundColor: MaterialStateProperty.all(
+                            context.theme.accentColor)),
+                    child: "Add to Cart".text.make())
+                .wh(150, 50)
           ],
-        ).p24(),
-      ).cornerRadius(20),
+        ).p16(),
+      ),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -45,12 +48,19 @@ class HomeProductDetail extends StatelessWidget {
               arcType: VxArcType.CONVEY,
               edge: VxEdge.TOP,
               child: Container(
-                color: Colors.red,
+                color: context.canvasColor,
                 width: context.screenWidth,
                 child: Column(
                   children: [
-                    catalog.name.text.xl4.color(MyTheme.darkBlue).bold.make(),
-                    catalog.desc.text.xl.make(),
+                    catalog.name.text.xl4
+                        .color(context.accentColor)
+                        .bold
+                        .make(),
+                    catalog.desc.text.xl.color(context.primaryColor).make(),
+                    "Duo tempor eirmod kasd ea sit. Sit sed sed rebum ut amet duo. Aliquyam et ipsum dolor duo diam eos et, consetetur amet vero sadipscing."
+                        .text
+                        .color(context.primaryColor)
+                        .make()
                   ],
                 ).p24(),
               ),
